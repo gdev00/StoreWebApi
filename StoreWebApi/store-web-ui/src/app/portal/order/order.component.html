@@ -1,0 +1,33 @@
+<div class="d-flex gap-3">
+    <div class="col-3">
+        <mat-card *ngFor="let product of products" class="mb-3">
+            <mat-card-content>
+                <h3 class="fw-bold">{{product.name }}</h3>
+                <p class="fw-light">{{ product.description }}</p>
+                <span class="fw-medium">{{ product.price }}</span>
+                <div class="d-flex justify-content-end gap-3">
+                    <button mat-fab color="primary" aria-label="add item" *ngIf="product.select" (click)="product.select = !product.select">
+                        <mat-icon>delete</mat-icon>
+                      </button>
+                      <button mat-fab color="primary" aria-label="remove item" *ngIf="!product.select" (click)="product.select = !product.select">
+                        <mat-icon>add</mat-icon>
+                      </button>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-9">
+        <mat-form-field>
+            <mat-label>Select Customer</mat-label>
+            <mat-select [(ngModel)]="selectedCustomer">
+                <mat-option *ngFor="let customer of customers" [value]="customer">
+                    {{customer.firstName}}  {{customer.lastName}}
+                </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div class="d-flex mb-2 gap-3">
+            <button mat-stroked-button color="accent" (click)="submit()">Order</button>
+        </div>
+    </div>
+</div>
+

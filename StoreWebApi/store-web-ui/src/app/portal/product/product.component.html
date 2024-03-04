@@ -1,0 +1,48 @@
+<mat-card class="h-100 ">
+    <mat-card-content class="d-flex flex-column">
+        <div class="d-flex mb-2 gap-3">
+            <button mat-stroked-button color="primary" (click)="onSubmit()">Add</button>
+            <button mat-stroked-button color=accent (click)="onUpdate()">Update</button>
+            <button mat-stroked-button (click)="onDelete()">Delete</button>
+        </div>
+        <div class="d-flex flex-column">
+            <form [formGroup]="form"  class="row col-7">
+                <mat-form-field>
+                    <mat-label>Name</mat-label>
+                    <input matInput  formControlName="name">
+                  </mat-form-field>
+                  <mat-form-field>
+                    <mat-label>Description</mat-label>
+                    <textarea matInput  formControlName="description"></textarea>
+                  </mat-form-field>
+                  <mat-form-field>
+                    <mat-label>Price</mat-label>
+                    <input matInput type="number"  formControlName="price">
+                  </mat-form-field>
+            </form>
+            <div>
+                <table mat-table [dataSource]="productDataSource" class="mat-elevation-z8 w-100 " matTooltip="Select to edit details">
+
+                    <ng-container matColumnDef="name">
+                      <th mat-header-cell *matHeaderCellDef> Name </th>
+                      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    </ng-container>
+                  
+                    <ng-container matColumnDef="description">
+                      <th mat-header-cell *matHeaderCellDef> Description </th>
+                      <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+                    </ng-container>
+                  
+                    <ng-container matColumnDef="price">
+                      <th mat-header-cell *matHeaderCellDef> Price </th>
+                      <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+                    </ng-container>
+                  
+                    <tr mat-header-row *matHeaderRowDef="productHeader"></tr>
+                    <tr mat-row style="cursor:pointer" *matRowDef="let row; columns: productHeader;"  (click)="onSelectProduct(row.id)"></tr>
+                </table>
+            </div>
+            
+        </div>
+    </mat-card-content>
+</mat-card>

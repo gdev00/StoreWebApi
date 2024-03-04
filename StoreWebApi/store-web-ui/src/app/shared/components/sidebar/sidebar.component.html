@@ -1,0 +1,26 @@
+<mat-sidenav-container class="sidebar-container" autosize>
+    <mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true">
+        <mat-nav-list>
+            <mat-list-item class="flex justify-content-end">
+                <a [routerLink]="['./portal/order']">
+                    <span class="full-width" style="width: 100%">Order</span>
+                    <mat-icon mat-list-icon class="align-middle">shopping_cart</mat-icon>
+                </a>
+            </mat-list-item>  
+            <mat-list-item class="parent">
+                <a [routerLink]="['./portal/product']">
+                    <span class="full-width" style="width: 100%">Product</span>
+                    <mat-icon mat-list-icon class="align-middle">favorite</mat-icon>
+                </a>
+            </mat-list-item>   
+            <mat-list-item class="parent">
+                <a [routerLink]="['./portal/customer']">
+                    <span class="full-width" style="width: 100%">Customer</span>
+                    <mat-icon mat-list-icon class="align-middle">account_circle</mat-icon>
+                </a>
+            </mat-list-item>      
+        </mat-nav-list>
+    <mat-nav-list>
+    </mat-nav-list>
+    </mat-sidenav>
+</mat-sidenav-container>
